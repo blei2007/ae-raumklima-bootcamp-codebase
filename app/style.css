@@ -1,0 +1,63 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f4f4;
+    padding: 40px;
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    width: 280px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.card h2 {
+    margin-top: 0;
+    color: #00695c;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 8px;
+}
+
+.status {
+    margin-top: 16px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.gut {
+    background: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #c8e6c9;
+}
+
+.schlecht {
+    background: #ffebee;
+    color: #c62828;
+    border: 1px solid #ffcdd2;
+}
+
+.kritisch {
+    background: #ffebee;
+    color: #e65100;
+    border: 1px solid #ffcdd2;
+}
+
+.karten-grid {
+    display: flex;
+    grid-template-columns: repeat(auto-fill, minmax (280px 1fr));
+    gap: 16px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+header {
+    padding: 20px;
+    text-align: center;
+    background: #e65100;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+}
