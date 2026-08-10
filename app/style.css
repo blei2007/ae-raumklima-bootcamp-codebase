@@ -1,22 +1,71 @@
 body {
-    font-family: Arial, sans-serif;
-    background: #f0f4f4;
-    padding: 40px;
+    width: 100%;
+    margin: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-family: Arial, Helvetica, sans-serif;
 }
+
 
 .card {
     background: white;
-    border-radius: 12px;
-    padding: 24px;
-    width: 280px;
+    width: 800px;
+    border-radius: 18px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 24px;
+    position: center;
+    margin: auto;
+    margin-top: 50px;
 }
 
-.card h2 {
-    margin-top: 0;
-    color: #00695c;
-    border-bottom: 2px solid #e0e0e0;
-    padding-bottom: 8px;
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #e65100;
+  font-weight: bold;
+}
+
+ul h1 {
+    font-size: 30px;
+    font-weight: bolder;
+    color: white;
+    font-style: Helvetica;
+    float: left;
+}
+
+ul li {
+  float: right;
+}
+
+ul li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 28px 31px;
+  text-decoration: none;
+  font-size: 20px
+}
+
+ul li a:hover {
+  background-color: white;
+  color: #e65100;
+}
+
+#serial-number {
+    font-weight: bold;
+}
+
+.karten-grid {
+    display: flex;
+    grid-template-columns: repeat(auto-fill, minmax(280px  1fr));
+    gap: 18px;
+}
+
+.card:hover {
+    padding: 30px;
+    background: whitesmoke;
 }
 
 .status {
@@ -26,38 +75,36 @@ body {
     font-weight: bold;
     text-align: center;
 }
-
 .gut {
-    background: #e8f5e9;
-    color: #2e7d32;
-    border: 1px solid #c8e6c9;
+    background: #97d39c;
+    color: #27a42d;
+    border: 1px solid #89c08e;
+}
+
+.kritisch{
+    background: #ef8d72;
+    color: #f84437;
+    border: 1px solid #d16041;
 }
 
 .schlecht {
-    background: #ffebee;
+    background: #ff2344;
     color: #c62828;
-    border: 1px solid #ffcdd2;
+    border: 1px solid #ff6f7d;
 }
 
-.kritisch {
-    background: #ffebee;
-    color: #e65100;
-    border: 1px solid #ffcdd2;
+footer {
+   position: absolute; 
+   bottom: 0;
+   text-align: center;
+   background-color: white;
+   width: 100%;
+   border: 5px rgb(225, 223, 223);
+   box-shadow: 1px 4px 12px rgba(0,0,0,0.1);
 }
 
-.karten-grid {
-    display: flex;
-    grid-template-columns: repeat(auto-fill, minmax (280px 1fr));
-    gap: 16px;
-    max-width: 900px;
-    margin: 0 auto;
+footer p {
+    float: left;
+    margin-left: 20px;
 }
 
-header {
-    padding: 20px;
-    text-align: center;
-    background: #e65100;
-    font-size: 30px;
-    font-weight: bold;
-    color: white;
-}
