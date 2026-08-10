@@ -87,7 +87,7 @@ function renderHistory(bundles) {
 function showError() {
   document.getElementById("serial-number").textContent = "Keine Daten";
   document.getElementById("temp-c").textContent = "°C";
-  document.getElementById("hum-pct").textContent = "-- %";
+  document.getElementById("hum-pct").textContent = "%";
 
   const statusEl = document.getElementById("status");
   statusEl.textContent = "Keine Daten verfügbar";
@@ -178,6 +178,16 @@ async function loadDashboard() {
     showError();
     console.error(error);
   }
+}
+
+function toggleTheme() {
+  const isDark = document.body.classList.contains('dark');
+  isDark ? document.body.classList.remove('dark') : document.body.classList.add('dark')
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+
+if (localStorage.getItem('theme') === 'dark') {
+  document.body.classList.add('dark');
 }
 
 // Beim Laden der Seite starten
