@@ -108,3 +108,25 @@ footer p {
     margin-left: 20px;
 }
 
+button {
+    background-color: #e65100;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    margin-right: 0px;
+    float: right;
+    position: top;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: white;
+    color: #e65100;
+    border: 1px solid #e65100;
+}
