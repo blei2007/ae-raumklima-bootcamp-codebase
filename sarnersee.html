@@ -10,25 +10,46 @@
 </head>
 <body>
     <ul>
-        <li></li><h1>Raum Sarnersee</h1>
-        <li><a href="sarnersee.html"> Sarnersee</a></li>
-        <li><a href="hallwilersee.html"> Hallwilersee</a></li>
-        <li><a href="vierwaldstättersee.html"> Vierwaldstättersee</a></li>
+        <h1>Raumklima Monitor</h1>
+        <li><a href="https://www.instagram.com/suva.schweiz"> Instagram</a></li>
+        <li><a href="https://www.tiktok.com/@suva_ch"> TikTok</a></li>
+        <li><a href="https://www.suva.ch"> Suva</a></li>
     </ul>
      
     <div class="karten-grid">
-        <div class="card">
-            <h2>Raum Sarnersee</h2>
-            <div id="serial-number"> Sensor F3B3</div>
-            <div id="temp-c">Raumtemperatur: 21°C</div>
-            <div id="hum-pct">Luftfeuchtigkeit: 54%</div>
-            <div id="history-list">Lade Daten...</div>
+        <div class="card sensor" id="card">
+            <h2 id="serial-number">Sensor F3B3</h2>
+            <div id="temp-c">Temperatur: </div>
+            <div id="hum-pct">Luftfeuchtigkeit: </div>
             <div id="status" class="status gut">Status: Gut</div>
-
+  
         </div>
+        <section class="history"> 
+            <div class="card messungen">
+                <h3>Verlauf der letzten Messungen</h3>
+                <div class="history-list" id="history-list">
+                    <p class="placeholder" id="history">Lade Daten...</p>
+                </div>
+            </div>
+        </section>
+        <div class="card container"> 
+            <h3>Temperaturverlauf</h3>
+            <div class="chart" id="chart">
+                <div class="bar" style="width: 70%;"><span>23.4°</span></div>
+                <div class="bar" style="width: 65%;"><span>23.1°</span></div>
+                <div class="bar" style="width: 60%;"><span>22.9°</span></div>
+                <div class="bar" style="width: 60%;"><span>22.9°</span></div>
+                <div class="bar" style="width: 60%;"><span>22.9°</span></div>
+                <div class="bar" style="width: 60%;"><span>22.9°</span></div>
+                <div class="bar" style="width: 60%;"><span>22.9°</span></div>
+                <div class="bar" style="width: 60%;"><span>22.9°</span></div>
+
+            </div>
+          </div>
+
     </div>
 
-    <footer> <p>© 2026 Levin Antoniutti</p></footer>
+    <footer> <p>&copy; 2026 Bootcamp </p></footer>
     
 </body>
 </html>
