@@ -11,10 +11,10 @@
 // Im Bootcamp zeigt der Trainer die echte API-URL.
 // Für lokales Testen ohne Backend bleibt API_BASE = ''
 // (dann wird der Snapshot-Fallback genutzt).
-const API_BASE = "";
+const API_BASE = 'http://192.168.1.186:8080/api/v1';
 
 // Aktueller Sensor (vom Dropdown)
-let currentSerial = "SN12345";
+let currentSerial = '7208r_0001';
 
 // ---------- Hilfsfunktionen ----------
 
@@ -73,8 +73,8 @@ function renderHistory(bundles) {
 
     item.innerHTML = `
       <span class="history-time">${time}</span>
-      <span class="history-temp">${bme.temp_c}°C</span>
-      <span class="history-hum">${bme.hum_pct}%</span>
+      <span class="history-temp">${Number(bme.temp_c).toFixed(1)}°C</span>
+      <span class="history-hum">${Number(bme.hum_pct).toFixed(1)}%</span>
       <span class="history-status ${status}">${getStatusText(status)}</span>
     `;
 
@@ -164,8 +164,8 @@ async function loadDashboard() {
     const bme = latest.readings.bme680;
 
     document.getElementById("serial-number").textContent = currentSerial;
-    document.getElementById("temp-c").textContent =  bme.temp_c + " °C";
-    document.getElementById("hum-pct").textContent = bme.hum_pct + " %";
+    document.getElementById("temp-c").textContent = Number(bme.temp_c).toFixed(1) + " °C";
+    document.getElementById("hum-pct").textContent = Number(bme.hum_pct).toFixed(1) + " %";
 
     const status = getStatus(bme.temp_c, bme.hum_pct);
     const statusEl = document.getElementById("status");
@@ -174,9 +174,10 @@ async function loadDashboard() {
 
     const bundles = await getBundles(currentSerial, 10);
     renderHistory(bundles);
+    graphList(bundles);
   } catch (error) {
     showError();
-    console.error(error);
+    console.error();
   }
 }
 
@@ -190,5 +191,43 @@ if (localStorage.getItem('theme') === 'dark') {
   document.body.classList.add('dark');
 }
 
+function graphList(bundles) {
+  const chartContainer = document.getElementById("chart");
+  chartContainer.innerHTML = "";
+
+  if (!Array.isArray(bundles) || bundles.length === 0) {
+    chartContainer.innerHTML = '<p class="placeholder">Keine Temperaturdaten</p>';
+    return;
+  }
+
+  // Definiere hier deinen festen Bereich für die Skalierung (Anpassbar!)
+  const FIXED_MIN = 22;   // Unterste Grenze (z.B. 0 °C)
+  const FIXED_MAX = 30;  // Oberste Grenze (z.B. 50 °C)
+
+  bundles.forEach((bundle) => {
+    const bme = bundle?.readings?.bme680;
+    if (!bme) return;
+
+    const temp = Number(bme.temp_c);
+    if (!Number.isFinite(temp)) return;
+    
+    // Berechne den Prozentwert fest basierend auf dem definierten Bereich
+    let normalized = ((temp - FIXED_MIN) / (FIXED_MAX - FIXED_MIN)) * 100;
+
+    // Begrenze den Wert sicher zwischen 0% und 100%
+    const width = Math.max(0, Math.min(100, normalized));
+
+    const element = document.createElement("div");
+    element.className = "bar";
+    // Falls du eine Mindestbreite für die Sichtbarkeit willst: Math.max(3, width)
+    element.style.width = `${width}%`;
+    element.innerHTML = `<span>${temp.toFixed(1)}°</span>`;
+
+    chartContainer.appendChild(element);
+  });
+}
+
 // Beim Laden der Seite starten
-loadDashboard();
+setInterval(() => {
+  loadDashboard();
+}, 30000); // 30000 ms = 30 Sekunden

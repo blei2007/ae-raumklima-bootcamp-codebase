@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <ul>
+      <h1>Raumklima Monitor</h1>
+      <li><a href="https://www.instagram.com/suva.schweiz"> Instagram</a></li>
+      <li><a href="https://www.tiktok.com/@suva_ch/video/7540528202393849121"> TikTok</a></li>
+      <li><a href="https://www.suva.ch"> Suva</a></li>
+      <li>
+    <img
+        src="paypal.jpg"
+        alt="PayPal QR-Code"
+        width="60"
+        height="60"
+    >
+    </li>
+    </ul>
+
+    <div class="karten-grid">
+      <div class="card sensor" id="card">
+        <h2 id="serial-number">Sensor 7208r_0001</h2>
+        <div id="temp-c">Temperatur:</div>
+        <div id="hum-pct">Luftfeuchtigkeit:</div>
+        <div id="status" class="status gut">Status: Gut</div>
+      </div>
+      <section class="history">
+        <div class="card messungen">
+          <h3>Verlauf der letzten Messungen</h3>
+          <div class="history-list" id="history-list">
+            <p class="placeholder" id="history">Lade Daten...</p>
+          </div>
+        </div>
+      </section>
+      <div class="card container">
+        <h3>Temperaturverlauf</h3>
+        <div class="chart" id="chart">
+          <div class="bar" style="width: 70%"><span>23.4°</span></div>
+          <div class="bar" style="width: 71%"><span>23.6°</span></div>
+          <div class="bar" style="width: 69%"><span>23.2°</span></div>
+          <div class="bar" style="width: 72%"><span>23.8°</span></div>
+          <div class="bar" style="width: 73.5%"><span>24.1°</span></div>
+          <div class="bar" style="width: 79%"><span>25.2°</span></div>
+          <div class="bar" style="width: 83%"><span>26°</span></div>
+          <div class="bar" style="width: 40.5%"><span>19.5°</span></div>
+          <div class="bar" style="width: 40.5%"><span>18.2°</span></div>
+          <div class="bar" style="width: 40.5%"><span>19.5°</span></div>
+        </div>
+      </div>
+      <button id="theme-toggle" class="dark-mode" onclick="toggleTheme()">Dark Mode</button>
+    </div>
+
+    <section class="admin-panel">
+      <details>
+        <summary>Einstellungen</summary>
+        <div class="admin-content">
+          <label>
+            Sensor:
+            <select id="sensor-select" onchange="onSensorChange()">
+              <option value="7208r_0001">7208r_0001</option>
+              <option value="7208r_0002">7208r_0002</option>
+              <option value="7208r_0003">7208r_0003</option>
+            </select>
+          </label>
+          <button onclick="loadDashboard()" class="aktualisieren">Aktualisieren</button>
+        </div>
+      </details>
+    </section>
+    <footer><p>&copy; 2026 Bootcamp</p></footer>
+  </body>
+</html>
+<script src="script.js"></script>

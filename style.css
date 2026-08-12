@@ -122,7 +122,7 @@ footer p {
 
 button {
     background-color: #e65100;
-    color: white;
+    color: rgb(255, 255, 255);
     border: none;
     padding: 10px 20px;
     text-align: center;
@@ -133,11 +133,12 @@ button {
     margin-right: 0px;
     float: right;
     font-weight: bold;
+    box-shadow: 1px 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 button:hover {
-    background-color: white;
-    color: #e65100;
+    background-color: #e65100;
+    color: #000;
     border: 1px solid #e65100;
 }
 h3 {
@@ -176,28 +177,101 @@ h3 {
   font-size: 11px;
   font-weight: bold;
   box-sizing: border-box;
+  overflow: visible;
+  white-space: nowrap;
 }
 
 .container {
     width: min(60%, 300px);
     position: absolute;
-    top: 100px;
+    top: 70px;
     left: 70px;
 }
 
 .messungen {
     width: 300px;
     position: absolute;
-    top: 100px;
+    top: 70px;
     right: 70px;
 }
 
 .sensor {
     width: 300px;
     position: absolute;
-    top: 100px;
+    top: 70px;
     left: 50%;
     transform: translateX(-50%);
+}
+
+.dark-mode {
+    position: absolute;
+    bottom: 100px;
+    width: 300px;
+    justify-content: center;
+    border-radius: 16px;
+    box-shadow: 1px 4px 12px rgba(0, 0, 0, 0.1);
+    margin-left: 290px;
+}
+
+image {
+    size: 100px 100px;
+}
+
+.admin-panel {
+    background-color: #e65100;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 250px;
+    margin-right: 35%;
+    margin-left: 35%;
+    font-weight: bold;
+    box-shadow: 1px 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+}
+
+.admin-panel details {
+    width: 50%%;
+}
+
+.admin-panel summary {
+    cursor: pointer;
+    padding: 5px;
+}
+
+.admin-panel summary:hover {
+    color: #000;
+}
+
+.admin-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.admin-content label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.admin-content select {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+}
+
+.aktualisieren {
+    margin: 0;
+    padding: 8px 16px;
+    border-radius: 16px;
+    border: none;
+    cursor: pointer;
 }
 
 body.dark {
@@ -205,22 +279,71 @@ body.dark {
   color: #000;
 }
 
-body.dark .card,
-body.dark .history, {
-  background: #000;
-  color: #e0e0e0;
+body.dark .history {
+  background: #ff1b1b;
+  color: #000000;
 }
 
 body.dark footer {
     background: #000;
+    color: #9c9c9c;
 }
 
-button {
-    position: absolute;
-    bottom: 100px;
-    width: 300px;
-    justify-content: center;
+body.dark .card {
+    background-color: #121212;
+    color: #d1d1d1;
+    box-shadow: 1px 4px 12px #9c9c9c;
+}
+
+body.dark ul {
+    background-color: #121212;
+    color: #c8e6cc;
+}
+
+body.dark ul li a:hover {
+    color: #000;
+    background-color: #9c9c9c;
+}
+
+body.dark .bar {
+    background-color: rgb(178, 209, 198);
+    color: #000;
+}
+
+body.dark .dark-mode {
+    background-color: rgb(178, 209, 198);
+    color: #000;
+    box-shadow: 1px 4px 12px#9c9c9c;
+}
+
+body.dark .dark-mode:hover {
+    color: #f9f7f7;
+    border: #fafafa;
+}
+
+body.dark .kritisch {
+    color: #794600;
+    background-color: color-mix(in srgb, aquamarine 50%, red    50%);
+}
+
+body.dark .admin-panel {
+    background-color: #121212;
+    color: #d1d1d1;
+    box-shadow: 1px 4px 12px #9c9c9c;
+}
+
+body.dark .aktualisieren {
+    background-color: rgba(178, 209, 198);
+    color: #000;
+    box-shadow: 1px 4px 12px #9c9c9c;
     border-radius: 16px;
-    box-shadow: 1px 4px 12px rgba(0, 0, 0, 0.1);
-    margin-left: 300px;
+    border: #e0e0e0;
+}
+
+body.dark .aktualisieren:hover {
+    color: white;
+}
+
+body.dark .admin-panel summary:hover {
+    color: white;
 }
